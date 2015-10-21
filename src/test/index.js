@@ -145,11 +145,11 @@ describe('Internationalization', () => {
         i18n
             .init()
             .then(() => {
-                assert.equal('en', i18n.getLocale().lng);
+                assert.equal('en', i18n.getLocale());
             })
             .then(() => {
                 i18n.setLocale('fr');
-                assert.equal('fr', i18n.getLocale().lng);
+                assert.equal('fr', i18n.getLocale());
                 done();
             });
     });

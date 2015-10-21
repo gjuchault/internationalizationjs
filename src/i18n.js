@@ -9,8 +9,9 @@ class Internationalization {
         this.defaultLocale = defaultLocale;
         this.fallbacks     = fallbacks;
 
-        this.locales = {};
-        this.locale  = null;
+        this.locales    = {};
+        this.locale     = null;
+        this.localeName = null;
     }
 
     init () {
@@ -40,12 +41,13 @@ class Internationalization {
         let lng = (this.fallbacks.hasOwnProperty(lng_)) ? this.fallbacks[lng_] : lng_;
 
         if (this.locales.hasOwnProperty(lng)) {
-            this.locale = this.locales[lng];
+            this.locale     = this.locales[lng];
+            this.localeName = lng;
         }
     }
 
     getLocale () {
-        return this.locale;
+        return this.localeName;
     }
 
     __ (name) {
