@@ -4,6 +4,7 @@ node_js:
 - '4'
 install:
 - npm install -g mocha babel
+- npm install
 script:
 - npm test
 deploy:
