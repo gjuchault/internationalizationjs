@@ -1,0 +1,31 @@
+{
+  "name": "internationalizationjs",
+  "version": "1.0.0",
+  "description": "ES6 Simple i18n",
+  "main": "lib/i18n.js",
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "l10n",
+    "localization"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gjuchault/internationalizationjs"
+  },
+  "bugs": {
+    "url": "https://github.com/gjuchault/internationalizationjs/issues"
+  },
+  "scripts": {
+    "test": "babel -d lib/ src/ && mocha lib/test --sort --bail",
+    "postinstall": "babel -d lib/ src/"
+  },
+  "author": "Gabriel Juchault <gabriel.juchault@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.8.23"
+  }
+}

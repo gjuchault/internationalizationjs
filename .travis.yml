@@ -1,0 +1,15 @@
+language: node_js
+sudo: required
+node_js:
+- '4'
+install:
+- npm install -g mocha babel
+script:
+- npm test
+deploy:
+  provider: npm
+  email: gabriel.juchault@gmail.com
+  api_key:
+    secure: ApDjxM05UJbX+ccQGKEVGUXFjRCM4sLo7J/zKKTAXJb/wsF+SPIsfTUL5YbSJHZjhCF1Zrt8tcn/VQeutj0DS03xrzh61keNTS2Y5YSOPxnNnk0SRjBTd37C5xHZkzH6y9N2XfsQuQDzHef/D3yvmuQeB5/miY0jfRTQyvozqsdSsLY1RSOxpYriWSqgvlW9UPGUfC/LP7f1/LpwoFxh9xJv6Si78FcF5sfJq31jGcFq+YOjpOD/sP/HlOAS12sf3vVJ1iZZJJU1TqWSleLZsTIiSV+FZcClT6EQ0y3/okXnE6R0aE/nT3rpjmoqyLLvMOE8lbjAUrJ8K26xMd5gqJmYw9GTjzd8pd81c4d9IzcKlXewCXdu6HFEuabxz5mCMHv+ViUfNO8f8QC7T/yk5Q0BllvVPgOr4r9/DU4GLcVWIwRmo4TGmeQY1j6goXDz6TuUkP9BN62LcHQkx3np4HPcffdjztpAYfm+Dzw+pCZJd4hrYbJakLPSVyEZfTu1GoAuwjt6/q9pRo/5Yo/qkkb/6DpUl5YxE0xc8i/4j6N02CajelxAyO4jLClF2nU+F8U5OkvuvPxoa1D/9cq/ybX1TB+bM/rAq+6uelVXEHjQ5PYM01ESj5lf//635JnsOFiNb26Qk+5vcKcfItINOZbEZ5PgV+BJXzmL26XRH3s=
+  on:
+    repo: gjuchault/internationalizationjs
