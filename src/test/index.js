@@ -153,4 +153,17 @@ describe('Internationalization', () => {
                 done();
             });
     });
+
+    it('should fallback when specified', done => {
+        let i18n = new Internationalization('./lib/test/locales', 'fr', {
+            fr: 'en'
+        });
+
+        i18n
+            .init()
+            .then(() => {
+                assert.equal('en', i18n.__('lng'));
+                done();
+            });
+    });
 });

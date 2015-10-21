@@ -29,16 +29,16 @@ class Internationalization {
                     this.locales[file.slice(0, -3)] = require(path.join(fullPath, file));
                 });
 
-                if (this.locales.hasOwnProperty(this.defaultLocale)) {
-                    this.locale = this.locales[this.defaultLocale];
-                }
+                this.setLocale(this.defaultLocale);
 
                 return resolve();
             });
         });
     }
 
-    setLocale (lng) {
+    setLocale (lng_) {
+        let lng = (this.fallbacks.hasOwnProperty(lng_)) ? this.fallbacks[lng_] : lng_;
+
         if (this.locales.hasOwnProperty(lng)) {
             this.locale = this.locales[lng];
         }
