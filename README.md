@@ -57,3 +57,21 @@ let i18n = new Internationalization()
         i18n.getLocale(); // 'fr'
     });
 ```
+
+## sprintf
+
+You may use anything that you can use in [`sprintf`](https://github.com/alexei/sprintf.js).
+
+```js
+export default {
+    hello: 'Hello %s!'
+}
+```
+
+```js
+let i18n = new Internationalization()
+    .init()
+    .then(() => {
+        i18n.__('hello', 'World'); // "Hello World!"
+    });
+```

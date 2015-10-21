@@ -11,5 +11,6 @@ export default {
     cats    : {
         one : 'un chat',
         more: 'des chats'
-    }
+    },
+    mouse   : 'J\'ai %s souris'
 };

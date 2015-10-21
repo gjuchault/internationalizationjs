@@ -166,4 +166,14 @@ describe('Internationalization', () => {
                 done();
             });
     });
+
+    it('should use vsprinf', done => {
+        let i18n = new Internationalization('./lib/test/locales');
+        i18n
+            .init()
+            .then(() => {
+                assert.equal('I have 1 mouse', i18n.__('mouse', 1));
+                done();
+            });
+    });
 });

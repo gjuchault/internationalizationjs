@@ -2,6 +2,7 @@
 
 import fs   from 'fs';
 import path from 'path';
+import { vsprintf } from 'sprintf';
 
 class Internationalization {
     constructor (source = './locales', defaultLocale = 'en', fallbacks = {}) {
@@ -50,11 +51,13 @@ class Internationalization {
         return this.localeName;
     }
 
-    __ (name) {
-        return this._dotNotation(this.locale, name);
+    __ (name, ...args) {
+        let str = this._dotNotation(this.locale, name);
+
+        return (typeof str !== 'string') ? str : vsprintf(str, args);
     }
 
-    __n (name, count) {
+    __n (name, count, ...args) {
         let obj = this._dotNotation(this.locale, name);
 
         if (Object.prototype.toString.call(obj) !== '[object Object]' ||
@@ -62,7 +65,9 @@ class Internationalization {
             return;
         }
 
-        return (count > 1 || count < -1) ? obj.more : obj.one;
+        let str = (count > 1 || count < -1) ? obj.more : obj.one;
+
+        return (typeof str !== 'string') ? str : vsprintf(str, args);
     }
 
     _dotNotation (obj, path) {

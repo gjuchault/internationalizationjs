@@ -8,8 +8,9 @@ export default {
             more: 'cats'
         }
     },
-    cats: {
+    cats    : {
         one : 'a cat',
         more: 'cats'
-    }
+    },
+    mouse   : 'I have %s mouse'
 };
