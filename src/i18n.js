@@ -13,29 +13,29 @@ class Internationalization {
         this.locales    = {};
         this.locale     = null;
         this.localeName = null;
+
+        this.init();
     }
 
     init () {
-        return new Promise((resolve, reject) => {
-            let fullPath = path.resolve(process.cwd(), this.source);
-            fs.readdir(fullPath, (err, files) => {
-                if (err) {
-                    return reject(err);
-                }
+        let files;
+        let fullPath = path.resolve(process.cwd(), this.source);
 
-                files.forEach(file => {
-                    if (file.slice(-3) !== '.js') {
-                        return;
-                    }
+        try {
+            files = fs.readdirSync(fullPath);
+        } catch (e) {
+            return;
+        }
 
-                    this.locales[file.slice(0, -3)] = require(path.join(fullPath, file));
-                });
+        files.forEach(file => {
+            if (file.slice(-3) !== '.js') {
+                return;
+            }
 
-                this.setLocale(this.defaultLocale);
-
-                return resolve();
-            });
+            this.locales[file.slice(0, -3)] = require(path.join(fullPath, file));
         });
+
+        this.setLocale(this.defaultLocale);
     }
 
     setLocale (lng_) {

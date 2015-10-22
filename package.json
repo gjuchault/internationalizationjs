@@ -1,6 +1,6 @@
 {
   "name": "internationalizationjs",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "ES6 Simple i18n",
   "main": "lib/i18n.js",
   "files": [
